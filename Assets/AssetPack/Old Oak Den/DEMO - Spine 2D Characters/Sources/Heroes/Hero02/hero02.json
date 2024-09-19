@@ -1,0 +1,140 @@
+{ "skeleton": { "images": "D:/Work/Apocalypse Heroes/Characters/Heroes/Hero02/images/" },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "Shadow", "bone": "root", "attachment": "Shadow" },
+	{ "name": "Left Upperarm", "bone": "root", "attachment": "Left Upperarm" },
+	{ "name": "Body", "bone": "root", "attachment": "Body" },
+	{ "name": "Left Forearm", "bone": "root", "attachment": "Left Forearm" },
+	{ "name": "Leg Bottom Left", "bone": "root", "attachment": "Leg Bottom Left" },
+	{ "name": "Leg Left Thigh", "bone": "root", "attachment": "Leg Left Thigh" },
+	{ "name": "Leg Right Bottom", "bone": "root", "attachment": "Leg Right Bottom" },
+	{ "name": "Leg Right Thigh", "bone": "root", "attachment": "Leg Right Thigh" },
+	{ "name": "Hip", "bone": "root", "attachment": "Hip" },
+	{ "name": "Ammunition belt", "bone": "root", "attachment": "Ammunition belt" },
+	{ "name": "Head", "bone": "root", "attachment": "Head" },
+	{ "name": "Machinegun01", "bone": "root", "attachment": "Machinegun01" },
+	{ "name": "Shotgun01", "bone": "root", "attachment": "Shotgun01" },
+	{ "name": "Knife", "bone": "root", "attachment": "Knife" },
+	{ "name": "Knifeflash", "bone": "root", "attachment": "Knifeflash" },
+	{ "name": "Left Fist", "bone": "root", "attachment": "Left Fist" },
+	{ "name": "Right upperarm", "bone": "root", "attachment": "Right upperarm" },
+	{ "name": "Right upperarm copy", "bone": "root", "attachment": "Right upperarm copy" },
+	{ "name": "Right Forearm", "bone": "root", "attachment": "Right Forearm" },
+	{ "name": "Fire", "bone": "root", "attachment": "Fire" },
+	{ "name": "Right Fist", "bone": "root", "attachment": "Right Fist" }
+],
+"skins": {
+	"default": {
+		"Shadow": {
+			"Shadow": { "x": 185.5, "y": -382.5, "width": 131, "height": 75 }
+		},
+		"Left Upperarm": {
+			"Left Upperarm": { "x": 238, "y": -200, "width": 54, "height": 102 }
+		},
+		"Body": {
+			"Body": { "x": 174.5, "y": -190, "width": 135, "height": 154 }
+		},
+		"Left Forearm": {
+			"Left Forearm": { "x": 255, "y": -240, "width": 64, "height": 50 }
+		},
+		"Leg Bottom Left": {
+			"Leg Bottom Left": { "x": 214, "y": -341.5, "width": 60, "height": 101 }
+		},
+		"Leg Left Thigh": {
+			"Leg Left Thigh": { "x": 214.5, "y": -290, "width": 67, "height": 76 }
+		},
+		"Leg Right Bottom": {
+			"Leg Right Bottom": { "x": 153.5, "y": -349, "width": 49, "height": 108 }
+		},
+		"Leg Right Thigh": {
+			"Leg Right Thigh": { "x": 151, "y": -288, "width": 72, "height": 88 }
+		},
+		"Hip": {
+			"Hip": { "x": 179, "y": -260, "width": 90, "height": 64 }
+		},
+		"Ammunition belt": {
+			"Ammunition belt": { "x": 175.5, "y": -192.5, "width": 109, "height": 133 }
+		},
+		"Head": {
+			"Head": { "x": 184, "y": -112, "width": 104, "height": 106 }
+		},
+		"Machinegun01": {
+			"Machinegun01": { "x": 229, "y": -245, "width": 254, "height": 130 }
+		},
+		"Shotgun01": {
+			"Shotgun01": { "x": 233.5, "y": -227, "width": 179, "height": 76 }
+		},
+		"Knife": {
+			"Knife": { "x": 275, "y": -290.5, "width": 44, "height": 147 }
+		},
+		"Knifeflash": {
+			"Knifeflash": { "x": 302.5, "y": -283.5, "width": 79, "height": 157 }
+		},
+		"Left Fist": {
+			"Left Fist": { "x": 273, "y": -248, "width": 54, "height": 40 }
+		},
+		"Right upperarm": {
+			"Right upperarm": { "x": 121, "y": -194.5, "width": 60, "height": 97 }
+		},
+		"Right upperarm copy": {
+			"Right upperarm copy": { "x": 118.5, "y": -194.5, "width": 55, "height": 97 }
+		},
+		"Right Forearm": {
+			"Right Forearm": { "x": 123, "y": -240, "width": 64, "height": 50 }
+		},
+		"Fire": {
+			"Fire": { "x": 388, "y": -214, "width": 144, "height": 152 }
+		},
+		"Right Fist": {
+			"Right Fist": { "x": 158, "y": -248, "width": 56, "height": 52 }
+		}
+	},
+	"PTSFCamo01": {
+		"Left Upperarm": {
+			"Left Upperarm": { "name": "PTSFCamo01/Left Upperarm", "x": 237.5, "y": -199.5, "width": 51, "height": 99 }
+		},
+		"Body": {
+			"Body": { "name": "PTSFCamo01/Body", "x": 174, "y": -189.5, "width": 136, "height": 157 }
+		},
+		"Left Forearm": {
+			"Left Forearm": { "name": "PTSFCamo01/Left Forearm", "x": 255.5, "y": -239.5, "width": 65, "height": 49 }
+		},
+		"Leg Bottom Left": {
+			"Leg Bottom Left": { "name": "PTSFCamo01/Leg Bottom Left", "x": 216.5, "y": -340, "width": 55, "height": 100 }
+		},
+		"Leg Left Thigh": {
+			"Leg Left Thigh": { "name": "PTSFCamo01/Leg Left Thigh", "x": 208.5, "y": -291, "width": 57, "height": 76 }
+		},
+		"Leg Right Bottom": {
+			"Leg Right Bottom": { "name": "PTSFCamo01/Leg Right Bottom", "x": 154, "y": -348.5, "width": 48, "height": 107 }
+		},
+		"Leg Right Thigh": {
+			"Leg Right Thigh": { "name": "PTSFCamo01/Leg Right Thigh", "x": 159, "y": -289, "width": 56, "height": 88 }
+		},
+		"Hip": {
+			"Hip": { "name": "PTSFCamo01/Hip", "x": 178.5, "y": -259.5, "width": 89, "height": 63 }
+		},
+		"Ammunition belt": {
+			"Ammunition belt": { "name": "PTSFCamo01/Ammunition belt", "x": 178.5, "y": -193, "width": 95, "height": 130 }
+		},
+		"Head": {
+			"Head": { "name": "PTSFCamo01/Head", "x": 182.5, "y": -113.5, "width": 83, "height": 103 }
+		},
+		"Left Fist": {
+			"Left Fist": { "name": "PTSFCamo01/Left Fist", "x": 273, "y": -249, "width": 52, "height": 38 }
+		},
+		"Right upperarm": {
+			"Right upperarm": { "name": "PTSFCamo01/Right upperarm", "x": 116.5, "y": -194.5, "width": 53, "height": 99 }
+		},
+		"Right Forearm": {
+			"Right Forearm": { "name": "PTSFCamo01/Right Forearm", "x": 123.5, "y": -238.5, "width": 61, "height": 49 }
+		},
+		"Right Fist": {
+			"Right Fist": { "name": "PTSFCamo01/Right Fist", "x": 158, "y": -247.5, "width": 54, "height": 51 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

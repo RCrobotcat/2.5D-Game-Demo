@@ -1,0 +1,91 @@
+Antruder.png
+size:1024,256
+filter:Linear,Linear
+pma:true
+L1/Ass
+bounds:808,193,69,61
+L1/Body
+bounds:950,201,69,53
+L1/Head
+bounds:213,104,149,150
+L1/Hip
+bounds:220,46,73,56
+L1/Left Back Foot
+bounds:305,6,48,43
+L1/Left Back Leg1
+bounds:795,109,70,50
+L1/Left Back Leg2
+bounds:100,2,38,83
+L1/Left Front Foot
+bounds:840,32,46,43
+L1/Left Front Leg1
+bounds:808,161,76,30
+L1/Left Front Leg2
+bounds:473,117,47,82
+rotate:90
+L1/Left Spike1
+bounds:641,113,51,75
+rotate:90
+L1/Left Spike2
+bounds:364,166,109,88
+L1/Neck
+bounds:593,65,45,50
+L1/Right Back Foot
+bounds:886,148,48,43
+L1/Right Back Leg1
+bounds:449,65,70,50
+L1/Right Back Leg2
+bounds:140,2,38,83
+L1/Right Front Foot
+bounds:422,20,46,43
+L1/Right Front Leg1
+bounds:712,81,76,30
+L1/Right Front Leg2
+bounds:2,2,47,83
+L1/Right Spike1
+bounds:718,113,51,75
+rotate:90
+L1/Right Spike2
+bounds:475,166,109,88
+L1/Shadow
+bounds:364,119,107,45
+L2/Ass
+bounds:879,193,69,61
+L2/Head
+bounds:2,87,209,167
+L2/Left Back Foot
+bounds:790,32,48,43
+L2/Left Back Leg1
+bounds:521,65,70,50
+L2/Left Back Leg2
+bounds:180,2,38,83
+L2/Left Front Foot
+bounds:470,20,46,43
+L2/Left Front Leg1
+bounds:790,77,76,30
+L2/Left Front Leg2
+bounds:557,117,47,82
+rotate:90
+L2/Left Spike1
+bounds:295,51,51,75
+rotate:90
+L2/Left Spike2
+bounds:586,166,109,88
+L2/Right Back Foot
+bounds:372,21,48,43
+L2/Right Back Leg1
+bounds:640,61,70,50
+L2/Right Back Leg2
+bounds:220,6,38,83
+rotate:90
+L2/Right Front Foot
+bounds:518,20,46,43
+L2/Right Front Leg1
+bounds:712,49,76,30
+L2/Right Front Leg2
+bounds:51,2,47,83
+L2/Right Spike1
+bounds:372,66,51,75
+rotate:90
+L2/Right Spike2
+bounds:697,166,109,88

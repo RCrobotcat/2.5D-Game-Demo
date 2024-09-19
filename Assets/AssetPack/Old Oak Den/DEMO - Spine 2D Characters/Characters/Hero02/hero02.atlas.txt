@@ -1,0 +1,87 @@
+﻿hero02.png
+size:1024,512
+filter:Linear,Linear
+pma:true
+Ammunition belt
+bounds:414,375,109,133
+Body
+bounds:258,373,135,154
+rotate:90
+Gatling
+bounds:2,266,223,110
+Head
+bounds:525,402,104,106
+Hip
+bounds:363,281,90,64
+rotate:90
+Knife
+bounds:764,464,44,147
+rotate:90
+Knifeflash
+bounds:140,107,79,157
+Left Fist
+bounds:868,408,54,40
+rotate:90
+Left Forearm
+bounds:675,207,64,50
+rotate:90
+Left Upperarm
+bounds:764,408,54,102
+rotate:90
+Leg Bottom Left
+bounds:227,270,60,101
+Leg Left Thigh
+bounds:519,221,67,76
+rotate:90
+Leg Right Bottom
+bounds:913,459,49,108
+rotate:90
+Leg Right Thigh
+bounds:289,283,72,88
+Machinegun01
+bounds:2,378,254,130
+PTSFCamo01/Ammunition belt
+bounds:2,10,95,130
+rotate:90
+PTSFCamo01/Body
+bounds:2,107,136,157
+PTSFCamo01/Head
+bounds:134,2,83,103
+PTSFCamo01/Hip
+bounds:429,310,89,63
+PTSFCamo01/Left Fist
+bounds:977,405,52,38
+rotate:90
+PTSFCamo01/Left Forearm
+bounds:910,408,65,49
+PTSFCamo01/Left Upperarm
+bounds:627,330,51,99
+rotate:90
+PTSFCamo01/Leg Bottom Left
+bounds:525,345,55,100
+rotate:90
+PTSFCamo01/Leg Left Thigh
+bounds:597,214,57,76
+rotate:90
+PTSFCamo01/Leg Right Bottom
+bounds:631,383,48,107
+rotate:90
+PTSFCamo01/Leg Right Thigh
+bounds:429,252,56,88
+rotate:90
+PTSFCamo01/Right Fist
+bounds:728,330,54,51
+PTSFCamo01/Right Forearm
+bounds:355,230,61,49
+PTSFCamo01/Right upperarm
+bounds:520,290,53,99
+rotate:90
+Right Fist
+bounds:418,198,56,52
+Right Forearm
+bounds:289,231,64,50
+Right upperarm copy
+bounds:621,273,55,97
+rotate:90
+Shadow
+bounds:631,433,131,75

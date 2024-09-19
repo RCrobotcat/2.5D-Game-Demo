@@ -1,0 +1,100 @@
+{ "skeleton": { "images": "D:/Work/Apocalypse Heroes/Characters/Enemies/Area 51/Antruder/images/L1/" },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "Shadow", "bone": "root", "attachment": "Shadow" },
+	{ "name": "Left Back Leg1", "bone": "root", "attachment": "Left Back Leg1" },
+	{ "name": "Left Back Foot", "bone": "root", "attachment": "Left Back Foot" },
+	{ "name": "Left Back Leg2", "bone": "root", "attachment": "Left Back Leg2" },
+	{ "name": "Left Front Leg1", "bone": "root", "attachment": "Left Front Leg1" },
+	{ "name": "Left Front Foot", "bone": "root", "attachment": "Left Front Foot" },
+	{ "name": "Left Front Leg2", "bone": "root", "attachment": "Left Front Leg2" },
+	{ "name": "Left Spike1", "bone": "root", "attachment": "Left Spike1" },
+	{ "name": "Left Spike2", "bone": "root", "attachment": "Left Spike2" },
+	{ "name": "Ass", "bone": "root", "attachment": "Ass" },
+	{ "name": "Hip", "bone": "root", "attachment": "Hip" },
+	{ "name": "Body", "bone": "root", "attachment": "Body" },
+	{ "name": "Right Back Leg1", "bone": "root", "attachment": "Right Back Leg1" },
+	{ "name": "Right Back Foot", "bone": "root", "attachment": "Right Back Foot" },
+	{ "name": "Right Back Leg2", "bone": "root", "attachment": "Right Back Leg2" },
+	{ "name": "Right Front Leg1", "bone": "root", "attachment": "Right Front Leg1" },
+	{ "name": "Right Front Foot", "bone": "root", "attachment": "Right Front Foot" },
+	{ "name": "Right Front Leg2", "bone": "root", "attachment": "Right Front Leg2" },
+	{ "name": "Neck", "bone": "root", "attachment": "Neck" },
+	{ "name": "Head", "bone": "root", "attachment": "Head" },
+	{ "name": "Right Spike1", "bone": "root", "attachment": "Right Spike1" },
+	{ "name": "Right Spike2", "bone": "root", "attachment": "Right Spike2" }
+],
+"skins": {
+	"default": {
+		"Shadow": {
+			"Shadow": { "x": 523.5, "y": -633.5, "width": 107, "height": 45 }
+		},
+		"Left Back Leg1": {
+			"Left Back Leg1": { "x": 557, "y": -549, "width": 70, "height": 50 }
+		},
+		"Left Back Foot": {
+			"Left Back Foot": { "x": 585, "y": -603.5, "width": 48, "height": 43 }
+		},
+		"Left Back Leg2": {
+			"Left Back Leg2": { "x": 581, "y": -563.5, "width": 38, "height": 83 }
+		},
+		"Left Front Leg1": {
+			"Left Front Leg1": { "x": 576, "y": -575, "width": 76, "height": 30 }
+		},
+		"Left Front Foot": {
+			"Left Front Foot": { "x": 602, "y": -641.5, "width": 46, "height": 43 }
+		},
+		"Left Front Leg2": {
+			"Left Front Leg2": { "x": 593.5, "y": -604, "width": 47, "height": 82 }
+		},
+		"Left Spike1": {
+			"Left Spike1": { "x": 583.5, "y": -511.5, "width": 51, "height": 75 }
+		},
+		"Left Spike2": {
+			"Left Spike2": { "x": 631.5, "y": -509, "width": 109, "height": 88 }
+		},
+		"Ass": {
+			"Ass": { "x": 487.5, "y": -553.5, "width": 69, "height": 61 }
+		},
+		"Hip": {
+			"Hip": { "x": 520.5, "y": -571, "width": 73, "height": 56 }
+		},
+		"Body": {
+			"Body": { "x": 537.5, "y": -543.5, "width": 69, "height": 53 }
+		},
+		"Right Back Leg1": {
+			"Right Back Leg1": { "x": 474, "y": -557, "width": 70, "height": 50 }
+		},
+		"Right Back Foot": {
+			"Right Back Foot": { "x": 446, "y": -611.5, "width": 48, "height": 43 }
+		},
+		"Right Back Leg2": {
+			"Right Back Leg2": { "x": 450, "y": -571.5, "width": 38, "height": 83 }
+		},
+		"Right Front Leg1": {
+			"Right Front Leg1": { "x": 490, "y": -580, "width": 76, "height": 30 }
+		},
+		"Right Front Foot": {
+			"Right Front Foot": { "x": 464, "y": -646.5, "width": 46, "height": 43 }
+		},
+		"Right Front Leg2": {
+			"Right Front Leg2": { "x": 472.5, "y": -609.5, "width": 47, "height": 83 }
+		},
+		"Neck": {
+			"Neck": { "x": 550.5, "y": -512, "width": 45, "height": 50 }
+		},
+		"Head": {
+			"Head": { "x": 552.5, "y": -488, "width": 149, "height": 150 }
+		},
+		"Right Spike1": {
+			"Right Spike1": { "x": 497.5, "y": -508.5, "width": 51, "height": 75 }
+		},
+		"Right Spike2": {
+			"Right Spike2": { "x": 516.5, "y": -501, "width": 109, "height": 88 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
