@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2044307578344083744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4647192057598697812}
+  m_Layer: 0
+  m_Name: leftShootingPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4647192057598697812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044307578344083744}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.344, y: 0.92, z: -0.531}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1958711721060685307}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2070979509676181198
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247132159486534394}
   m_Layer: 0
-  m_Name: ShootingPos
+  m_Name: rightShootingPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +109,7 @@ GameObject:
   - component: {fileID: 6072645268775465213}
   - component: {fileID: 3574478305377280240}
   - component: {fileID: 916994697627038798}
+  - component: {fileID: 3100949313910425060}
   m_Layer: 6
   m_Name: Player_Hero
   m_TagString: Player
@@ -101,6 +133,7 @@ Transform:
   - {fileID: 657702030860663339}
   - {fileID: 1621287264074484011}
   - {fileID: 1247132159486534394}
+  - {fileID: 4647192057598697812}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!33 &2879494924353609552
@@ -237,13 +270,13 @@ BoxCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.87308407, y: 2.1379294, z: 0}
-  m_Center: {x: 0.06230253, y: 1.0306551, z: -0.0000062059175}
+  m_Size: {x: 0.87308407, y: 2.1379294, z: 0.2}
+  m_Center: {x: 0.06230253, y: 1.0306551, z: 0}
 --- !u!114 &3574478305377280240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +293,8 @@ MonoBehaviour:
   ProjectileParticle: {fileID: 3649518310990084495, guid: 3eba1367cc2159341a2e697d9fdf39be, type: 3}
   FireEffect: {fileID: 1743301284569550, guid: e08987588c66d0f4291aab7d903f6350, type: 3}
   ProjectileDelayTime: 0.3
-  shootingTransform: {fileID: 1247132159486534394}
+  RightShootingTransform: {fileID: 1247132159486534394}
+  LeftShootingTransform: {fileID: 4647192057598697812}
 --- !u!114 &916994697627038798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +311,21 @@ MonoBehaviour:
   walk: {fileID: 11400000, guid: 318292e2dc6291146ae5237e1a676870, type: 2}
   aim: {fileID: 11400000, guid: 782af27a50da9c8408fd9a770b5f215f, type: 2}
   shoot: {fileID: 11400000, guid: 48fd82bbbf051c44ea125a46137ce8aa, type: 2}
+--- !u!114 &3100949313910425060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217990142742023680}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7e1e0a36c3d064bb61f79197c44f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonAnimation: {fileID: 6799250745305077635}
+  boneName: target2
+  cam: {fileID: 0}
 --- !u!1 &7596982574314387276
 GameObject:
   m_ObjectHideFlags: 0

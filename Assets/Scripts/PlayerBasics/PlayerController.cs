@@ -4,12 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using QFramework;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Basic Settings")]
     public float PlayerSpeed;
     float horizontal, vertical;
+
+    PlayerNumController playerDataCtrl;
 
     Rigidbody rb;
     SpineAnimationController spineAnimationController;
@@ -19,17 +22,26 @@ public class PlayerController : MonoBehaviour
     public GameObject FireEffect;
     public float ProjectileDelayTime;
     float currentProjectileDelayTime;
-    public Transform shootingTransform;
+    public Transform RightShootingTransform;
+    public Transform LeftShootingTransform;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         spineAnimationController = GetComponent<SpineAnimationController>();
+
+        playerDataCtrl = FindObjectOfType<PlayerNumController>();
     }
 
     void Update()
     {
         HandleMovement();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DamageArea"))
+            playerDataCtrl.SendCommand<PlayerHealthChangeCommand>();
     }
 
     void FixedUpdate()
@@ -47,11 +59,11 @@ public class PlayerController : MonoBehaviour
 
         if (horizontal < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            spineAnimationController.skeletonAnimation.skeleton.ScaleX = -1;
         }
         else if (horizontal > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            spineAnimationController.skeletonAnimation.skeleton.ScaleX = 1;
         }
 
         if (rb.velocity.magnitude > 0.1f)
@@ -74,14 +86,17 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject projectile, shooting;
 
-                Vector3 ForwardDir = transform.localScale == new Vector3(1, 1, 1) ? Vector3.right : Vector3.left;
+                Vector3 ForwardDir = spineAnimationController.skeletonAnimation.skeleton.ScaleX == 1 ?
+                    Vector3.right : Vector3.left;
+                Quaternion ForwardRot = spineAnimationController.skeletonAnimation.skeleton.ScaleX == 1 ?
+                    Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0);
 
-                shooting = Instantiate(FireEffect, shootingTransform.position + ForwardDir * 0.5f, Quaternion.identity);
+                Vector3 shootPos = spineAnimationController.skeletonAnimation.skeleton.ScaleX == 1 ?
+                    RightShootingTransform.position : LeftShootingTransform.position;
 
-                // Set the rotation for the projectile based on character orientation
-                Quaternion ForwardRot = transform.localScale == new Vector3(1, 1, 1) ? Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0);
+                shooting = Instantiate(FireEffect, shootPos + ForwardDir * 0.5f, Quaternion.identity);
 
-                projectile = Instantiate(ProjectileParticle, shootingTransform.position, ForwardRot);
+                projectile = Instantiate(ProjectileParticle, shootPos, ForwardRot);
                 projectile.GetComponent<Rigidbody>().velocity = ForwardDir * 20f;
 
                 spineAnimationController.AddAnimation(spineAnimationController.shoot, false, 2);
