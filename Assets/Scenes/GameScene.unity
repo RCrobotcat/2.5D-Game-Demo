@@ -3021,7 +3021,7 @@ Transform:
   m_Children:
   - {fileID: 1583033272}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40.1, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &1329552889
 GameObject:
   m_ObjectHideFlags: 0
@@ -6334,6 +6334,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 3100949313910425060, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5217990142742023680, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
       propertyPath: m_Name
       value: Player_Hero

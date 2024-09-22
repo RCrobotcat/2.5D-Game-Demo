@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Basic Settings")]
     public float PlayerSpeed;
     float horizontal, vertical;
+    public bool isFlip;
 
     PlayerNumController playerDataCtrl;
 
@@ -60,10 +61,12 @@ public class PlayerController : MonoBehaviour
         if (horizontal < 0)
         {
             spineAnimationController.skeletonAnimation.skeleton.ScaleX = -1;
+            isFlip = true;
         }
         else if (horizontal > 0)
         {
             spineAnimationController.skeletonAnimation.skeleton.ScaleX = 1;
+            isFlip = false;
         }
 
         if (rb.velocity.magnitude > 0.1f)

@@ -10,6 +10,7 @@ public class PlayerTargetController : MonoBehaviour
 {
 
     public SkeletonAnimation skeletonAnimation;
+    PlayerController player;
 
     [SpineBone(dataField: "skeletonAnimation")]
     public string boneName;
@@ -20,6 +21,7 @@ public class PlayerTargetController : MonoBehaviour
     void OnValidate()
     {
         if (skeletonAnimation == null) skeletonAnimation = GetComponent<SkeletonAnimation>();
+        player = GetComponent<PlayerController>();
     }
 
     void Start()
@@ -27,13 +29,23 @@ public class PlayerTargetController : MonoBehaviour
         bone = skeletonAnimation.Skeleton.FindBone(boneName);
     }
 
+    Vector3 center = new(Screen.width / 2, Screen.height / 2, 0);
     void Update()
     {
-        Vector3 screenPos = cam.WorldToScreenPoint(transform.position);
+        // Vector3 screenPos = cam.WorldToScreenPoint(transform.position);
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = screenPos.z;
-        Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
         
-        bone.SetLocalPosition(mousePos);
+        if(player.isFlip)
+
+        {
+            Vector3 pos = center - mousePos;
+            pos.y = pos.y * -1;
+            bone.SetLocalPosition(pos);
+        }
+        else
+        {
+            Vector3 pos = mousePos - center;
+            bone.SetLocalPosition(pos);
+        }
     }
 }
