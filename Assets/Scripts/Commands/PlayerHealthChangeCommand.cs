@@ -5,10 +5,17 @@ using QFramework;
 
 public class PlayerHealthChangeCommand : AbstractCommand
 {
+    int _healthChange;
+
+    public PlayerHealthChangeCommand(int healthChange)
+    {
+        _healthChange = healthChange;
+    }
+
     protected override void OnExecute()
     {
         var playerNumModel = this.GetModel<IPlayerNumModel>();
 
-        playerNumModel.PlayerHealth.Value -= 10;
+        playerNumModel.PlayerHealthChange(_healthChange);
     }
 }

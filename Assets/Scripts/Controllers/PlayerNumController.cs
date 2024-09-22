@@ -9,12 +9,14 @@ public class PlayerNumController : MonoBehaviour, IController
 {
     public Transform UIBar;
     Image HealthSlider;
+    Text HealthText;
 
     IPlayerNumModel mModel;
 
     void Awake()
     {
         HealthSlider = UIBar.GetChild(0).GetComponent<Image>();
+        HealthText = UIBar.GetChild(1).GetComponent<Text>();
     }
 
     void Start()
@@ -30,7 +32,7 @@ public class PlayerNumController : MonoBehaviour, IController
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
-            this.SendCommand<PlayerHealthChangeCommand>();
+            this.SendCommand(new PlayerHealthChangeCommand(-10));
     }
 
     void UpdateHealthBar()
@@ -38,6 +40,8 @@ public class PlayerNumController : MonoBehaviour, IController
         float SliderPercent = (float)mModel.PlayerHealth.Value / 100;
 
         HealthSlider.DOFillAmount(SliderPercent, 0.3f);
+
+        HealthText.text = mModel.PlayerHealth.Value.ToString() + "/100";
     }
 
     public IArchitecture GetArchitecture()

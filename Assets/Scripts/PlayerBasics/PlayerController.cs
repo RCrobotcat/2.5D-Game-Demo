@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DamageArea"))
-            playerDataCtrl.SendCommand<PlayerHealthChangeCommand>();
+            playerDataCtrl.SendCommand(new PlayerHealthChangeCommand(-5));
     }
 
     void FixedUpdate()

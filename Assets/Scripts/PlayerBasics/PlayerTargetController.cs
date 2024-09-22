@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Spine;
 using Spine.Unity;
+using TreeEditor;
+using UnityEditor.ShaderKeywordFilter;
 
 public class PlayerTargetController : MonoBehaviour
 {
@@ -27,12 +29,11 @@ public class PlayerTargetController : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        Vector3 worldMousePosition = cam.ScreenToWorldPoint(mousePosition);
-        Vector3 skeletonSpacePoint = skeletonAnimation.transform.InverseTransformPoint(worldMousePosition);
-        skeletonSpacePoint.x *= transform.localScale.x;
-        skeletonSpacePoint.y *= transform.localScale.y;
-        skeletonSpacePoint.z *= transform.localScale.z;
-        bone.SetLocalPosition(skeletonSpacePoint);
+        Vector3 screenPos = cam.WorldToScreenPoint(transform.position);
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = screenPos.z;
+        Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
+        
+        bone.SetLocalPosition(mousePos);
     }
 }
