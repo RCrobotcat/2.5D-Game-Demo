@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Spine;
 using Spine.Unity;
-using TreeEditor;
-using UnityEditor.ShaderKeywordFilter;
 
 public class PlayerTargetController : MonoBehaviour
 {
@@ -17,6 +13,10 @@ public class PlayerTargetController : MonoBehaviour
     public Camera cam;
 
     Bone bone;
+
+    Vector3 center;
+
+    PlayerController player;
 
     void OnValidate()
     {
@@ -32,6 +32,7 @@ public class PlayerTargetController : MonoBehaviour
     Vector3 center = new(Screen.width / 2, Screen.height / 2, 0);
     void Update()
     {
+<<<<<<< Updated upstream
         // Vector3 screenPos = cam.WorldToScreenPoint(transform.position);
         Vector3 mousePos = Input.mousePosition;
         
@@ -47,5 +48,19 @@ public class PlayerTargetController : MonoBehaviour
             Vector3 pos = mousePos - center;
             bone.SetLocalPosition(pos);
         }
+=======
+        Vector3 mousePos = Input.mousePosition;
+        center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+
+        Vector3 pos;
+        if (player.isFlip)
+        {
+            pos = center - mousePos;
+            pos.y *= -1;
+        }
+        else pos = mousePos - center;
+
+        bone.SetLocalPosition(pos);
+>>>>>>> Stashed changes
     }
 }
