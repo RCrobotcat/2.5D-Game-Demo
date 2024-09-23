@@ -11,9 +11,10 @@ public class PlayerTargetController : MonoBehaviour
     public string boneName;
     public Camera cam;
 
-    Bone bone;
+    [HideInInspector] public Bone bone;
 
     Vector3 center;
+    [HideInInspector] public Vector3 targetPos;
 
     PlayerController player;
 
@@ -33,14 +34,13 @@ public class PlayerTargetController : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
 
-        Vector3 pos;
         if (player.isFlip)
         {
-            pos = center - mousePos;
-            pos.y *= -1;
+            targetPos = center - mousePos;
+            targetPos.y *= -1;
         }
-        else pos = mousePos - center;
+        else targetPos = mousePos - center;
 
-        bone.SetLocalPosition(pos);
+        bone.SetLocalPosition(targetPos);
     }
 }
