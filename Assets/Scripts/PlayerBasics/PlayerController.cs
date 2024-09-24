@@ -1,11 +1,5 @@
-using Spine.Unity;
-using Spine;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 using QFramework;
-using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,10 +7,11 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeed;
     float horizontal, vertical;
     [HideInInspector] public bool isFlip;
+    PlayerNumController playerNumController;
 
     PlayerNumController playerDataCtrl;
 
-    Rigidbody rb;
+    [HideInInspector] public Rigidbody rb;
     SpineAnimationController spineAnimationController;
     PlayerTargetController playerTargetCtrl;
 
@@ -41,6 +36,8 @@ public class PlayerController : MonoBehaviour
         playerTargetCtrl = GetComponent<PlayerTargetController>();
 
         dir = FireStart.GetChild(1);
+
+        playerNumController = GameObject.Find("PlayerNumCanvas").GetComponent<PlayerNumController>();
     }
 
     void Update()
@@ -56,8 +53,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 move = new Vector3(horizontal, 0, vertical);
-        rb.velocity = move * PlayerSpeed;
+        if (playerNumController.isRunning)
+            rb.velocity = new Vector3(horizontal, 0, vertical) * PlayerSpeed * 2f;
+        else
+            rb.velocity = new Vector3(horizontal, 0, vertical) * PlayerSpeed;
 
         HandleProjectileShoot();
     }

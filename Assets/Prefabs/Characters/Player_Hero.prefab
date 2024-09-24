@@ -387,11 +387,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: 5
   isFlip: 0
+  rb: {fileID: 0}
   ProjectileParticle: {fileID: 3649518310990084495, guid: 3eba1367cc2159341a2e697d9fdf39be, type: 3}
   FireEffect: {fileID: 1743301284569550, guid: e08987588c66d0f4291aab7d903f6350, type: 3}
   ProjectileDelayTime: 0.3
   FireStart: {fileID: 373388987062596595}
-  ProjectileSpeed: 45
+  ProjectileSpeed: 60
 --- !u!114 &916994697627038798
 MonoBehaviour:
   m_ObjectHideFlags: 0
