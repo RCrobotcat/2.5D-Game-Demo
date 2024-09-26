@@ -55,6 +55,11 @@ public class PlayerNumController : MonoBehaviour, IController
         if (Input.GetKeyDown(KeyCode.K))
             this.SendCommand(new PlayerHealthChangeCommand(-10));
 
+        HandleStaminaChange();
+    }
+
+    void HandleStaminaChange()
+    {
         if (Input.GetKeyDown(KeyCode.LeftShift) && mModel.PlayerStamina.Value >= 0)
             isRunning = true;
         else if (Input.GetKeyUp(KeyCode.LeftShift) || mModel.PlayerStamina.Value == 0)
@@ -74,8 +79,6 @@ public class PlayerNumController : MonoBehaviour, IController
             float add = RunStaminaCost * Time.deltaTime;
             this.SendCommand(new PlayerStaminaChangeCommand(add));
         }
-
-
     }
 
     void UpdateHealthBar()

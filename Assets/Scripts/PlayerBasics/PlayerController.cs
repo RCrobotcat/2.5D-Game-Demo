@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     PlayerTargetController playerTargetCtrl;
 
     [Header("Slashing")]
-    Transform dir, forwardDir;
+    Transform dir, forwardDir, backwardDir;
     [HideInInspector] public bool isSlashing;
 
     [Header("Projectile Settings")]
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
         dir = FireStart.GetChild(1);
         forwardDir = FireStart.GetChild(2);
+        backwardDir = FireStart.GetChild(3);
 
         playerNumController = GameObject.Find("PlayerNumCanvas").GetComponent<PlayerNumController>();
     }
@@ -99,7 +100,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0) && !isSlashing)
         {
             if (currentProjectileDelayTime > 0)
+            {
+
                 currentProjectileDelayTime -= Time.deltaTime;
+            }
             else if (currentProjectileDelayTime <= 0)
             {
                 GameObject projectile;
@@ -120,13 +124,25 @@ public class PlayerController : MonoBehaviour
 
                 FireStart.GetChild(0).gameObject.SetActive(true);
 
-                projectile = Instantiate(ProjectileParticle, FireStart.position, FireStart.rotation);
+
 
                 Vector3 forward = dir.position - FireStart.position;
 
                 // if the player is aiming down
                 if (FireStart.transform.position.y < 0.5f)
-                    forward = forwardDir.position - lookAtPoint.position;
+                {
+                    forward = forwardDir.position - new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z);
+                    projectile = Instantiate(ProjectileParticle, new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z), FireStart.rotation);
+                }
+                else if (FireStart.transform.position.y > 1.2f)
+                {
+                    forward = backwardDir.position - new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z);
+                    projectile = Instantiate(ProjectileParticle, new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z), FireStart.rotation);
+                }
+                else
+                {
+                    projectile = Instantiate(ProjectileParticle, FireStart.position, FireStart.rotation);
+                }
 
                 projectile.GetComponent<Rigidbody>().velocity = forward * ProjectileSpeed;
 
