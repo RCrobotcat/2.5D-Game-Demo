@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     SpineAnimationController spineAnimationController;
     PlayerTargetController playerTargetCtrl;
 
-    Transform dir;
+    Transform dir, forwardDir;
+    public Transform lookAtPoint;
     [HideInInspector] public bool isSlashing;
 
     [Header("Projectile Settings")]
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         playerTargetCtrl = GetComponent<PlayerTargetController>();
 
         dir = FireStart.GetChild(1);
+        forwardDir = FireStart.GetChild(2);
 
         playerNumController = GameObject.Find("PlayerNumCanvas").GetComponent<PlayerNumController>();
     }
@@ -120,6 +122,11 @@ public class PlayerController : MonoBehaviour
                 projectile = Instantiate(ProjectileParticle, FireStart.position, FireStart.rotation);
 
                 Vector3 forward = dir.position - FireStart.position;
+
+                // if the player is aiming down
+                if (FireStart.transform.position.y < 0.5f)
+                    forward = forwardDir.position - lookAtPoint.position;
+
                 projectile.GetComponent<Rigidbody>().velocity = forward * ProjectileSpeed;
 
                 spineAnimationController.AddAnimation(spineAnimationController.shoot, false, 2);
@@ -140,7 +147,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            isSlashing = true;
+            if (!isSlashing)
+                isSlashing = true;
             spineAnimationController.AddAnimation(spineAnimationController.slash, false, 3);
             spineAnimationController.skeletonAnimation.state.Complete += (entry) =>
             {
@@ -154,6 +162,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(0.5f);
-        isSlashing = false;
+        if (isSlashing)
+            isSlashing = false;
     }
 }
