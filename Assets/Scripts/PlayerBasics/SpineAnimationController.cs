@@ -32,7 +32,7 @@ public class SpineAnimationController : MonoBehaviour
 
     public void AddEmptyAnim(int track)
     {
-        skeletonAnimation.state.AddEmptyAnimation(track, 0.5f, 0.1f);
+        skeletonAnimation.state.AddEmptyAnimation(track, 0.3f, 0.1f);
     }
 
     public void DeleteAnimation(int track)

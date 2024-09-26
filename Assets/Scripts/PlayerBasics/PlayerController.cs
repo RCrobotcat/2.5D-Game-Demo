@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     float horizontal, vertical;
     [HideInInspector] public bool isFlip;
     PlayerNumController playerNumController;
+    public Transform lookAtPoint;
 
     PlayerNumController playerDataCtrl;
 
@@ -17,8 +18,10 @@ public class PlayerController : MonoBehaviour
     SpineAnimationController spineAnimationController;
     PlayerTargetController playerTargetCtrl;
 
+    [Header("Slashing")]
+    public float slashGap;
+    float slashTimer = 0;
     Transform dir, forwardDir;
-    public Transform lookAtPoint;
     [HideInInspector] public bool isSlashing;
 
     [Header("Projectile Settings")]
@@ -148,18 +151,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (!isSlashing)
-                isSlashing = true;
-            spineAnimationController.AddAnimation(spineAnimationController.slash, false, 3);
-            spineAnimationController.skeletonAnimation.state.Complete += (entry) =>
             {
-                spineAnimationController.AddEmptyAnim(3);
-            };
+                isSlashing = true;
+                spineAnimationController.AddAnimation(spineAnimationController.slash, false, 3);
+                spineAnimationController.skeletonAnimation.state.Complete += (entry) =>
+                {
+                    spineAnimationController.AddEmptyAnim(3);
+                };
+                slashTimer = slashGap;
+            }
         }
-        else if (Input.GetKeyUp(KeyCode.F))
-            StartCoroutine(Timer());
+        if (Input.GetKeyUp(KeyCode.F))
+            StartCoroutine(CancelSlash());
     }
 
-    IEnumerator Timer()
+    IEnumerator CancelSlash()
     {
         yield return new WaitForSeconds(0.5f);
         if (isSlashing)
