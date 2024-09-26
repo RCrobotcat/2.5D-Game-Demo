@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1692933960214150641}
   m_Layer: 0
   m_Name: FireBall
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,12 +101,12 @@ BoxCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.312222, y: 0.95222986, z: 0.2}
+  m_Size: {x: 1.5, y: 1, z: 1}
   m_Center: {x: -0.0625273, y: -0.018193543, z: 0}
 --- !u!54 &1692933960214150641
 Rigidbody:

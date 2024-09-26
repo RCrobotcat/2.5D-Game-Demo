@@ -2,6 +2,7 @@ using UnityEngine;
 using QFramework;
 using Spine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -51,6 +52,9 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleSlash();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -124,20 +128,18 @@ public class PlayerController : MonoBehaviour
 
                 FireStart.GetChild(0).gameObject.SetActive(true);
 
-
-
                 Vector3 forward = dir.position - FireStart.position;
 
-                // if the player is aiming down
+                // if the player is aiming up or down
                 if (FireStart.transform.position.y < 0.5f)
                 {
                     forward = forwardDir.position - new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z);
-                    projectile = Instantiate(ProjectileParticle, new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z), FireStart.rotation);
+                    projectile = Instantiate(ProjectileParticle, new Vector3(lookAtPoint.position.x, 1.05f, lookAtPoint.position.z), FireStart.rotation);
                 }
-                else if (FireStart.transform.position.y > 1.2f)
+                else if (FireStart.transform.position.y > 1.1f)
                 {
                     forward = backwardDir.position - new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z);
-                    projectile = Instantiate(ProjectileParticle, new Vector3(lookAtPoint.position.x, 1.06f, lookAtPoint.position.z), FireStart.rotation);
+                    projectile = Instantiate(ProjectileParticle, new Vector3(lookAtPoint.position.x, 1.05f, lookAtPoint.position.z), FireStart.rotation);
                 }
                 else
                 {
@@ -168,7 +170,7 @@ public class PlayerController : MonoBehaviour
             {
                 isSlashing = true;
                 spineAnimationController.AddAnimation(spineAnimationController.slash, false, 3);
-                spineAnimationController.skeletonAnimation.state.Complete += (entry) =>
+                spineAnimationController.skeletonAnimation.state.End += (entry) =>
                 {
                     spineAnimationController.AddEmptyAnim(3);
                 };

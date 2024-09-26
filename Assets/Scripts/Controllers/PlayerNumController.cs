@@ -51,10 +51,6 @@ public class PlayerNumController : MonoBehaviour, IController
 
     void Update()
     {
-        // For Testing
-        if (Input.GetKeyDown(KeyCode.K))
-            this.SendCommand(new PlayerHealthChangeCommand(-10));
-
         HandleStaminaChange();
     }
 
