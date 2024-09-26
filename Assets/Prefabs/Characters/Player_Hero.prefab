@@ -390,7 +390,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   ProjectileParticle: {fileID: 3649518310990084495, guid: 3eba1367cc2159341a2e697d9fdf39be, type: 3}
   FireEffect: {fileID: 1743301284569550, guid: e08987588c66d0f4291aab7d903f6350, type: 3}
-  ProjectileDelayTime: 0.3
+  ProjectileDelayTime: 0.2
   FireStart: {fileID: 373388987062596595}
   ProjectileSpeed: 60
 --- !u!114 &916994697627038798
@@ -409,6 +409,7 @@ MonoBehaviour:
   walk: {fileID: 11400000, guid: 318292e2dc6291146ae5237e1a676870, type: 2}
   aim: {fileID: 11400000, guid: 782af27a50da9c8408fd9a770b5f215f, type: 2}
   shoot: {fileID: 11400000, guid: 48fd82bbbf051c44ea125a46137ce8aa, type: 2}
+  slash: {fileID: 11400000, guid: 92e1d9f70cd0962408998068cef2f3fb, type: 2}
 --- !u!114 &3100949313910425060
 MonoBehaviour:
   m_ObjectHideFlags: 0

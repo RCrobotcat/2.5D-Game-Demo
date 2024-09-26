@@ -1,5 +1,7 @@
 using UnityEngine;
 using QFramework;
+using Spine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     PlayerTargetController playerTargetCtrl;
 
     Transform dir;
+    [HideInInspector] public bool isSlashing;
 
     [Header("Projectile Settings")]
     public GameObject ProjectileParticle;
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        HandleSlash();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleProjectileShoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !isSlashing)
         {
             if (currentProjectileDelayTime > 0)
                 currentProjectileDelayTime -= Time.deltaTime;
@@ -119,7 +123,6 @@ public class PlayerController : MonoBehaviour
                 projectile.GetComponent<Rigidbody>().velocity = forward * ProjectileSpeed;
 
                 spineAnimationController.AddAnimation(spineAnimationController.shoot, false, 2);
-                spineAnimationController.AddAnimation(spineAnimationController.aim, false, 3);
 
                 currentProjectileDelayTime = ProjectileDelayTime;
 
@@ -131,5 +134,26 @@ public class PlayerController : MonoBehaviour
         {
             FireStart.GetChild(0).gameObject.SetActive(false);
         }
+    }
+
+    void HandleSlash()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isSlashing = true;
+            spineAnimationController.AddAnimation(spineAnimationController.slash, false, 3);
+            spineAnimationController.skeletonAnimation.state.Complete += (entry) =>
+            {
+                spineAnimationController.AddEmptyAnim(3);
+            };
+        }
+        else if (Input.GetKeyUp(KeyCode.F))
+            StartCoroutine(Timer());
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isSlashing = false;
     }
 }

@@ -6530,14 +6530,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.040312026
       objectReference: {fileID: 0}
-    - target: {fileID: 373388987062596595, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.3868018
-      objectReference: {fileID: 0}
-    - target: {fileID: 373388987062596595, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.1265937
-      objectReference: {fileID: 0}
     - target: {fileID: 1958711721060685307, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.19
@@ -6581,10 +6573,6 @@ PrefabInstance:
     - target: {fileID: 2879494924353609552, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3574478305377280240, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
-      propertyPath: ProjectileDelayTime
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5217990142742023680, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
       propertyPath: m_Name
