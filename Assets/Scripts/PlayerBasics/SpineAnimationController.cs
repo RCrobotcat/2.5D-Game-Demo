@@ -4,6 +4,7 @@ using UnityEngine;
 using Spine.Unity;
 using Unity.VisualScripting;
 using Spine;
+using QFramework;
 
 public class SpineAnimationController : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class SpineAnimationController : MonoBehaviour
         TrackEntry trackEntry = skeletonAnimation.AnimationState.SetAnimation(track, animation, loop);
         trackEntry.MixAttachmentThreshold = 1f;
         trackEntry.SetMixDuration(0f, 0f);
+        if (animation == slash)
+            player.playerNumController.SendCommand(new PlayerStaminaChangeCommand(-3f));
         // skeletonAnimation.state.AddEmptyAnimation(1, 0.5f, 0.1f);
     }
 

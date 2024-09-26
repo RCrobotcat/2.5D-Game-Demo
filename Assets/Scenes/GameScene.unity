@@ -6574,10 +6574,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3574478305377280240, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
-      propertyPath: slashGap
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5217990142742023680, guid: 5dd3f56341b5d6341905375eef1b93be, type: 3}
       propertyPath: m_Name
       value: Player_Hero

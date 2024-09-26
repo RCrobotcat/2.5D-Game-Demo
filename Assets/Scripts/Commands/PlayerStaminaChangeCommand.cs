@@ -5,17 +5,17 @@ using QFramework;
 
 public class PlayerStaminaChangeCommand : AbstractCommand
 {
-    int _staminaChange;
+    float _staminaChange;
 
-    public PlayerStaminaChangeCommand(int staminaChange)
+    public PlayerStaminaChangeCommand(float staminaChange)
     {
         _staminaChange = staminaChange;
     }
 
     protected override void OnExecute()
     {
-        var playerModel = this.GetModel<PlayerNumModel>();
+        var playerNumModel = this.GetModel<IPlayerNumModel>();
 
-        playerModel.PlayerStaminaChange(_staminaChange);
+        playerNumModel.PlayerStaminaChange(_staminaChange);
     }
 }

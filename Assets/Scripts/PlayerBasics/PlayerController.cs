@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeed;
     float horizontal, vertical;
     [HideInInspector] public bool isFlip;
-    PlayerNumController playerNumController;
+    [HideInInspector] public PlayerNumController playerNumController;
     public Transform lookAtPoint;
 
     PlayerNumController playerDataCtrl;
@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
     PlayerTargetController playerTargetCtrl;
 
     [Header("Slashing")]
-    public float slashGap;
-    float slashTimer = 0;
     Transform dir, forwardDir;
     [HideInInspector] public bool isSlashing;
 
@@ -150,7 +148,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!isSlashing)
+            if (!isSlashing && playerNumController.GetModel<IPlayerNumModel>().PlayerStamina.Value >= 3f)
             {
                 isSlashing = true;
                 spineAnimationController.AddAnimation(spineAnimationController.slash, false, 3);
@@ -158,7 +156,6 @@ public class PlayerController : MonoBehaviour
                 {
                     spineAnimationController.AddEmptyAnim(3);
                 };
-                slashTimer = slashGap;
             }
         }
         if (Input.GetKeyUp(KeyCode.F))
@@ -167,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator CancelSlash()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         if (isSlashing)
             isSlashing = false;
     }

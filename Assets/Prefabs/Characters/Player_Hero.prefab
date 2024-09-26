@@ -423,8 +423,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: 5
   isFlip: 0
-  rb: {fileID: 0}
   lookAtPoint: {fileID: 1621287264074484011}
+  rb: {fileID: 0}
+  slashGap: 0.5
   isSlashing: 0
   ProjectileParticle: {fileID: 3649518310990084495, guid: 3eba1367cc2159341a2e697d9fdf39be, type: 3}
   FireEffect: {fileID: 1743301284569550, guid: e08987588c66d0f4291aab7d903f6350, type: 3}

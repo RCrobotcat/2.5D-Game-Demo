@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using QFramework;
-using Unity.VisualScripting;
 
 public class PlayerNumController : MonoBehaviour, IController
 {
@@ -50,7 +49,6 @@ public class PlayerNumController : MonoBehaviour, IController
         }).UnRegisterWhenGameObjectDestroyed(gameObject);
     }
 
-
     void Update()
     {
         // For Testing
@@ -65,13 +63,19 @@ public class PlayerNumController : MonoBehaviour, IController
         if (isRunning && player.rb.velocity.magnitude > 0.1f)
         {
             float cost = RunStaminaCost * Time.deltaTime * -1f;
-            mModel.PlayerStaminaChange(cost);
+            this.SendCommand(new PlayerStaminaChangeCommand(cost));
+        }
+        else if (player.isSlashing && Input.GetKeyDown(KeyCode.F))
+        {
+            this.SendCommand(new PlayerStaminaChangeCommand(-3f));
         }
         else
         {
             float add = RunStaminaCost * Time.deltaTime;
-            mModel.PlayerStaminaChange(add);
+            this.SendCommand(new PlayerStaminaChangeCommand(add));
         }
+
+
     }
 
     void UpdateHealthBar()
