@@ -14,9 +14,9 @@ public interface IEnemy1NumModel : IModel
 
 public class Enemy1NumModel : AbstractModel, IEnemy1NumModel
 {
-    public BindableProperty<int> EnemyHealth { get; } = new BindableProperty<int>(50);
+    public BindableProperty<int> EnemyHealth { get; } = new BindableProperty<int>(200);
 
-    public BindableProperty<int> EnemyDamage { get; } = new BindableProperty<int>(10);
+    public BindableProperty<int> EnemyDamage { get; } = new BindableProperty<int>(-5);
 
     public void EnemyHealthChange(int changeVal)
     {

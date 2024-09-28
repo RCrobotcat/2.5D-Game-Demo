@@ -467,6 +467,7 @@ MonoBehaviour:
   walk: {fileID: 11400000, guid: f838f7ff53446fd4db2320dc5240ce9c, type: 2}
   attack: {fileID: 11400000, guid: fda3d5e74f43758468148203083ca50f, type: 2}
   getHit: {fileID: 11400000, guid: f1aa4fd73aca26244bfebe4e7ed16769, type: 2}
+  dead: {fileID: 11400000, guid: 182235338320f0f478767d328aa880a2, type: 2}
   bloodPrefab: {fileID: 7546226661794051093, guid: 7a8285919b0192d4e9b7ad74911e0184, type: 3}
   bloodPos: {fileID: 7704478860180868952}
   attackGaptime: 1.2

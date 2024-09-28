@@ -57,10 +57,22 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DamageArea"))
             playerDataCtrl.SendCommand(new PlayerHealthChangeCommand(-5));
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+            spineAnimationController.AddAnimation(spineAnimationController.getHit, true, 4);
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+            spineAnimationController.DeleteAnimation(4);
     }
 
     void FixedUpdate()

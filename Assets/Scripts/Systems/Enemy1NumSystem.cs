@@ -9,6 +9,6 @@ public class Enemy1NumSystem : AbstractSystem, IEnemy1NumSystem
 {
     protected override void OnInit()
     {
-
+          
     }
 }

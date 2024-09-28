@@ -19,7 +19,7 @@ public class Enemy1Controller : MonoBehaviour, IController
     Vector3 direction;
 
     [HideInInspector] public SkeletonAnimation skeletonAnim;
-    public AnimationReferenceAsset walk, attack, getHit;
+    public AnimationReferenceAsset walk, attack, getHit, dead;
 
     float horizontal, vertical;
     bool isFlip;
@@ -27,6 +27,7 @@ public class Enemy1Controller : MonoBehaviour, IController
     PlayerController player;
 
     IEnemy1NumModel mModel;
+    IEnemy1NumModel _mModel;
 
     public GameObject bloodPrefab;
     public Transform bloodPos;
@@ -48,10 +49,12 @@ public class Enemy1Controller : MonoBehaviour, IController
     void Start()
     {
         mModel = this.GetModel<IEnemy1NumModel>();
+        _mModel = mModel;
 
-        mModel.EnemyHealth.RegisterWithInitValue(health =>
+        _mModel.EnemyHealth.RegisterWithInitValue(health =>
         {
             UpdateHealthBar();
+            Enemy1Dead();
         }).UnRegisterWhenGameObjectDestroyed(gameObject);
     }
 
@@ -74,7 +77,7 @@ public class Enemy1Controller : MonoBehaviour, IController
     {
         if (other.CompareTag("Projectile"))
         {
-            this.SendCommand(new Enemy1HealthChangeCommand(-10));
+            this.SendCommand(new Enemy1HealthChangeCommand(-5));
             blood = Instantiate(bloodPrefab, bloodPos.position, Quaternion.identity);
             skeletonAnim.state.AddAnimation(2, getHit, false, 0);
             cinemachineShake.Instance.shakingCamera(2f, 0.5f);
@@ -107,7 +110,8 @@ public class Enemy1Controller : MonoBehaviour, IController
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(-5));
+            int damage = _mModel.EnemyDamage.Value;
+            player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(damage));
         }
     }
 
@@ -119,7 +123,8 @@ public class Enemy1Controller : MonoBehaviour, IController
         }
         else if (collision.gameObject.CompareTag("Player") && timer <= 0)
         {
-            player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(-5));
+            int damage = _mModel.EnemyDamage.Value;
+            player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(damage));
             timer = attackGaptime;
         }
     }
@@ -152,8 +157,19 @@ public class Enemy1Controller : MonoBehaviour, IController
 
     void UpdateHealthBar()
     {
-        float SliderPercent = (float)mModel.EnemyHealth.Value / 50;
+        float SliderPercent = (float)_mModel.EnemyHealth.Value / 50;
         HealthSlider.DOFillAmount(SliderPercent, 0.3f);
+    }
+
+    void Enemy1Dead()
+    {
+        if (_mModel.EnemyHealth.Value <= 0)
+        {
+            rb.velocity = Vector3.zero;
+            skeletonAnim.state.AddAnimation(4, dead, false, 0);
+            Destroy(gameObject, 2.5f);
+        }
+        else return;
     }
 
     public IArchitecture GetArchitecture()

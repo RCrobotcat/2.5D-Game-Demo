@@ -9,7 +9,7 @@ using QFramework;
 public class SpineAnimationController : MonoBehaviour
 {
     [HideInInspector] public SkeletonAnimation skeletonAnimation;
-    public AnimationReferenceAsset walk, shoot, slash;
+    public AnimationReferenceAsset walk, shoot, slash, getHit;
 
     PlayerController player;
 
