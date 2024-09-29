@@ -8,7 +8,12 @@ using Spine.Unity;
 
 public class Enemy1Controller : MonoBehaviour, IController
 {
+    [Header("Enemy Basics")]
+    public string enemyID;
+    public int EnemyHealth;
+
     Rigidbody rb;
+    bool isDead;
 
     [Header("UI")]
     public Image UIHealthBar;
@@ -27,7 +32,6 @@ public class Enemy1Controller : MonoBehaviour, IController
     PlayerController player;
 
     IEnemy1NumModel mModel;
-    IEnemy1NumModel _mModel;
 
     public GameObject bloodPrefab;
     public Transform bloodPos;
@@ -49,13 +53,20 @@ public class Enemy1Controller : MonoBehaviour, IController
     void Start()
     {
         mModel = this.GetModel<IEnemy1NumModel>();
-        _mModel = mModel;
 
-        _mModel.EnemyHealth.RegisterWithInitValue(health =>
+        mModel.EnemyHealthSeperate.Add(enemyID, new Enemy1Nums { eID = enemyID, health = EnemyHealth });
+
+        this.RegisterEvent<UpdateEnemyNumsEvent>(e =>
         {
             UpdateHealthBar();
             Enemy1Dead();
         }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+        /*mModel.EnemyHealthSeperate.RegisterWithInitValue(health =>
+        {
+            UpdateHealthBar();
+            Enemy1Dead();
+        }).UnRegisterWhenGameObjectDestroyed(gameObject);*/
     }
 
     void Update()
@@ -70,14 +81,15 @@ public class Enemy1Controller : MonoBehaviour, IController
 
     void FixedUpdate()
     {
-        rb.velocity = direction * EnemySpeed;
+        if (!isDead)
+            rb.velocity = direction * EnemySpeed;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Projectile"))
         {
-            this.SendCommand(new Enemy1HealthChangeCommand(-5));
+            this.SendCommand(new Enemy1HealthChangeCommand(enemyID, -5));
             blood = Instantiate(bloodPrefab, bloodPos.position, Quaternion.identity);
             skeletonAnim.state.AddAnimation(2, getHit, false, 0);
             cinemachineShake.Instance.shakingCamera(2f, 0.5f);
@@ -110,7 +122,7 @@ public class Enemy1Controller : MonoBehaviour, IController
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            int damage = _mModel.EnemyDamage.Value;
+            int damage = mModel.EnemyDamage.Value;
             player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(damage));
         }
     }
@@ -123,7 +135,7 @@ public class Enemy1Controller : MonoBehaviour, IController
         }
         else if (collision.gameObject.CompareTag("Player") && timer <= 0)
         {
-            int damage = _mModel.EnemyDamage.Value;
+            int damage = mModel.EnemyDamage.Value;
             player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(damage));
             timer = attackGaptime;
         }
@@ -157,14 +169,15 @@ public class Enemy1Controller : MonoBehaviour, IController
 
     void UpdateHealthBar()
     {
-        float SliderPercent = (float)_mModel.EnemyHealth.Value / 50;
+        float SliderPercent = (float)mModel.EnemyHealthSeperate[enemyID].health / 50;
         HealthSlider.DOFillAmount(SliderPercent, 0.3f);
     }
 
     void Enemy1Dead()
     {
-        if (_mModel.EnemyHealth.Value <= 0)
+        if (mModel.EnemyHealthSeperate[enemyID].health <= 0)
         {
+            isDead = true;
             rb.velocity = Vector3.zero;
             skeletonAnim.state.AddAnimation(4, dead, false, 0);
             Destroy(gameObject, 2.5f);
