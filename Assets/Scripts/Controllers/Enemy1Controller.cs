@@ -54,7 +54,14 @@ public class Enemy1Controller : MonoBehaviour, IController
     {
         mModel = this.GetModel<IEnemy1NumModel>();
 
-        mModel.EnemyHealthSeperate.Add(enemyID, new Enemy1Nums { eID = enemyID, health = EnemyHealth });
+        if (mModel.EnemyHealthSeperate.ContainsKey(enemyID))
+        {
+            mModel.EnemyHealthSeperate[enemyID].health = EnemyHealth;
+        }
+        else
+        {
+            mModel.EnemyHealthSeperate.Add(enemyID, new Enemy1Nums { eID = enemyID, health = EnemyHealth });
+        }
 
         this.RegisterEvent<UpdateEnemyNumsEvent>(e =>
         {
