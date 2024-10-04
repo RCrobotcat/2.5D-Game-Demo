@@ -54,8 +54,12 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         HandleSlash();
 
+        // For Testing
         if (Input.GetKeyDown(KeyCode.Escape))
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        {
+            SceneController.Instance.ReloadCurrentScene();
+            playerDataCtrl.SendCommand(new PlayerHealthChangeCommand(100));
+        }
     }
 
     void OnTriggerEnter(Collider other)

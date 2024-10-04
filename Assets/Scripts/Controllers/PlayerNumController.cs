@@ -88,7 +88,7 @@ public class PlayerNumController : MonoBehaviour, IController
     {
         if (mModel.PlayerHealth.Value <= 0)
         {
-            // For Testing
+            SceneController.Instance.ReloadCurrentScene();
             this.SendCommand(new PlayerHealthChangeCommand(100));
         }
     }
