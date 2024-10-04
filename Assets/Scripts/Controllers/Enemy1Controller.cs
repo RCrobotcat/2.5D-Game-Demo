@@ -125,14 +125,14 @@ public class Enemy1Controller : MonoBehaviour, IController
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    /*void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             int damage = mModel.EnemyDamage.Value;
             player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(damage));
         }
-    }
+    }*/
 
     void OnCollisionStay(Collision collision)
     {
@@ -140,11 +140,25 @@ public class Enemy1Controller : MonoBehaviour, IController
         {
             timer -= Time.deltaTime;
         }
-        else if (collision.gameObject.CompareTag("Player") && timer <= 0)
+
+        if (collision.gameObject.CompareTag("Player")
+            && collision.gameObject.GetComponent<PlayerController>().isSlashing && timer <= 0)
         {
-            int damage = mModel.EnemyDamage.Value;
-            player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(damage));
-            timer = attackGaptime;
+            this.SendCommand(new Enemy1HealthChangeCommand(enemyID, -5));
+            blood = Instantiate(bloodPrefab, bloodPos.position, Quaternion.identity);
+            skeletonAnim.state.AddAnimation(2, getHit, false, 0);
+            cinemachineShake.Instance.shakingCamera(2f, 0.5f);
+            Destroy(blood, 0.5f);
+            timer = 0.3f;
+        }
+        else
+        {
+            if (collision.gameObject.CompareTag("Player") && timer <= 0)
+            {
+                int damage = mModel.EnemyDamage.Value;
+                player.GetComponent<PlayerController>().playerNumController.SendCommand(new PlayerHealthChangeCommand(damage));
+                timer = attackGaptime;
+            }
         }
     }
 

@@ -310,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154221451984350929, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.07
+      value: -9.89
       objectReference: {fileID: 0}
     - target: {fileID: 7154221451984350929, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -318,7 +318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154221451984350929, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 9.71
       objectReference: {fileID: 0}
     - target: {fileID: 7154221451984350929, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: _animationName
       value: Idle1
       objectReference: {fileID: 0}
+    - target: {fileID: 9015047233169569904, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
+      propertyPath: initialSkinName
+      value: L2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -387,9 +391,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7251350070644964649, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6374455720861212386}
-    - targetCorrespondingSourceObject: {fileID: 7251350070644964649, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5148765125690623533}
   m_SourcePrefab: {fileID: 100100000, guid: abe5bf2d45819b443b73d363a7f2a64d, type: 3}
 --- !u!4 &4223182941720729437 stripped
 Transform:
@@ -409,7 +410,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4427843806008345765}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -461,6 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3a85ba745cd4447b9eb8bc18613380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: Enemy_1
+  EnemyHealth: 50
   UIHealthBar: {fileID: 5981969925221483025}
   EnemySpeed: 5
   skeletonAnim: {fileID: 0}
@@ -471,24 +474,3 @@ MonoBehaviour:
   bloodPrefab: {fileID: 7546226661794051093, guid: 7a8285919b0192d4e9b7ad74911e0184, type: 3}
   bloodPos: {fileID: 7704478860180868952}
   attackGaptime: 1.2
---- !u!95 &5148765125690623533
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4427843806008345765}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9a4ecc2c75052fb4aba51e4443cd1069, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

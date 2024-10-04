@@ -65,8 +65,10 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !isSlashing)
+        {
             spineAnimationController.AddAnimation(spineAnimationController.getHit, true, 4);
+        }
     }
 
     void OnCollisionExit(Collision collision)

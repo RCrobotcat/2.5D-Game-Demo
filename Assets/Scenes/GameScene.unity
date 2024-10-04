@@ -4354,10 +4354,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2650585752403034620, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
-      propertyPath: initialSkinName
-      value: L2
-      objectReference: {fileID: 0}
     - target: {fileID: 3520619545871652832, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4407,16 +4403,8 @@ PrefabInstance:
       value: Enemy_Antruder_2
       objectReference: {fileID: 0}
     - target: {fileID: 6374455720861212386, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
-      propertyPath: EnemyID
-      value: Enemy_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374455720861212386, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
       propertyPath: enemyID
       value: Enemy_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374455720861212386, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
-      propertyPath: EnemyHealth
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5758,6 +5746,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2650585752403034620, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
+      propertyPath: initialSkinName
+      value: L1
+      objectReference: {fileID: 0}
     - target: {fileID: 3520619545871652832, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5805,22 +5797,6 @@ PrefabInstance:
     - target: {fileID: 4427843806008345765, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
       propertyPath: m_Name
       value: Enemy_Antruder
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427843806008345765, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374455720861212386, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
-      propertyPath: EnemyID
-      value: Enemy_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374455720861212386, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
-      propertyPath: enemyID
-      value: Enemy_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6374455720861212386, guid: ee432310289318a4b9f0f977dd6a2558, type: 3}
-      propertyPath: EnemyHealth
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
