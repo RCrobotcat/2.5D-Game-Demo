@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -41,6 +40,7 @@ public class PlayerNumController : MonoBehaviour, IController
         mModel.PlayerHealth.RegisterWithInitValue(health =>
         {
             UpdateHealthBar();
+            PlayerDeath();
         }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
         mModel.PlayerStamina.RegisterWithInitValue(stamina =>
@@ -82,6 +82,15 @@ public class PlayerNumController : MonoBehaviour, IController
         float SliderPercent = (float)mModel.PlayerHealth.Value / 100;
         HealthSlider.DOFillAmount(SliderPercent, 0.3f);
         HealthText.text = mModel.PlayerHealth.Value.ToString() + "/100";
+    }
+
+    void PlayerDeath()
+    {
+        if (mModel.PlayerHealth.Value <= 0)
+        {
+            // For Testing
+            this.SendCommand(new PlayerHealthChangeCommand(100));
+        }
     }
 
     void UpdateStaminaBar()

@@ -325,7 +325,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &6072645268775465213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -363,6 +363,7 @@ MonoBehaviour:
   isFlip: 0
   playerNumController: {fileID: 0}
   lookAtPoint: {fileID: 1621287264074484011}
+  gettingHit: 0
   rb: {fileID: 0}
   isSlashing: 0
   ProjectileParticle: {fileID: 3649518310990084495, guid: 3eba1367cc2159341a2e697d9fdf39be, type: 3}

@@ -39,6 +39,7 @@ public class Enemy1Controller : MonoBehaviour, IController
 
     public float attackGaptime;
     float timer;
+    float slashingTimer;
 
     void Awake()
     {
@@ -140,16 +141,21 @@ public class Enemy1Controller : MonoBehaviour, IController
         {
             timer -= Time.deltaTime;
         }
+        if (slashingTimer >= 0)
+        {
+            slashingTimer -= Time.deltaTime;
+        }
 
         if (collision.gameObject.CompareTag("Player")
-            && collision.gameObject.GetComponent<PlayerController>().isSlashing && timer <= 0)
+            && collision.gameObject.GetComponent<PlayerController>().isSlashing && slashingTimer <= 0
+            && !collision.gameObject.GetComponent<PlayerController>().gettingHit)
         {
             this.SendCommand(new Enemy1HealthChangeCommand(enemyID, -5));
             blood = Instantiate(bloodPrefab, bloodPos.position, Quaternion.identity);
             skeletonAnim.state.AddAnimation(2, getHit, false, 0);
             cinemachineShake.Instance.shakingCamera(2f, 0.5f);
             Destroy(blood, 0.5f);
-            timer = 0.3f;
+            slashingTimer = 0.3f;
         }
         else
         {

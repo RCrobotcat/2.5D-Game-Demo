@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isFlip;
     [HideInInspector] public PlayerNumController playerNumController;
     public Transform lookAtPoint;
+    [HideInInspector] public bool gettingHit;
 
     PlayerNumController playerDataCtrl;
 
@@ -68,13 +69,17 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && !isSlashing)
         {
             spineAnimationController.AddAnimation(spineAnimationController.getHit, true, 4);
+            gettingHit = true;
         }
     }
 
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
+        {
             spineAnimationController.DeleteAnimation(4);
+            gettingHit = false;
+        }
     }
 
     void FixedUpdate()
