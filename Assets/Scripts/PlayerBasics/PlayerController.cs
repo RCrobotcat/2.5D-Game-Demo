@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     PlayerNumController playerDataCtrl;
 
     [HideInInspector] public Rigidbody rb;
-    SpineAnimationController spineAnimationController;
+    [HideInInspector] public SpineAnimationController spineAnimationController;
     PlayerTargetController playerTargetCtrl;
 
     [Header("Slashing")]

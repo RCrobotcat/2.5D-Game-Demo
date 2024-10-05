@@ -6,7 +6,7 @@ using QFramework;
 public class SpineAnimationController : MonoBehaviour
 {
     [HideInInspector] public SkeletonAnimation skeletonAnimation;
-    public AnimationReferenceAsset walk, shoot, slash, getHit;
+    public AnimationReferenceAsset walk, shoot, slash, getHit, death;
 
     PlayerController player;
 

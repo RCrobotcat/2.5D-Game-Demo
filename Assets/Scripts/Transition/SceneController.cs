@@ -19,9 +19,9 @@ public class SceneController : Singleton<SceneController>
     IEnumerator ReloadScene()
     {
         SceneFader fade = Instantiate(sceneFaderPrefab);
-        yield return StartCoroutine(fade.FadeOut(1.0f));
+        yield return StartCoroutine(fade.FadeOut(1.5f));
         yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-        yield return StartCoroutine(fade.FadeIn(0.5f));
+        yield return StartCoroutine(fade.FadeIn(1.0f));
         yield break;
     }
 }

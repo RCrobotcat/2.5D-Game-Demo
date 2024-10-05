@@ -365,6 +365,7 @@ MonoBehaviour:
   lookAtPoint: {fileID: 1621287264074484011}
   gettingHit: 0
   rb: {fileID: 0}
+  spineAnimationController: {fileID: 0}
   isSlashing: 0
   ProjectileParticle: {fileID: 3649518310990084495, guid: 3eba1367cc2159341a2e697d9fdf39be, type: 3}
   FireEffect: {fileID: 1743301284569550, guid: e08987588c66d0f4291aab7d903f6350, type: 3}
@@ -388,6 +389,7 @@ MonoBehaviour:
   shoot: {fileID: 11400000, guid: 48fd82bbbf051c44ea125a46137ce8aa, type: 2}
   slash: {fileID: 11400000, guid: 92e1d9f70cd0962408998068cef2f3fb, type: 2}
   getHit: {fileID: 11400000, guid: 3e8506fc5683ef247837394b3b868ecf, type: 2}
+  death: {fileID: 11400000, guid: c139b71c825b6764a98fce351978c0bb, type: 2}
 --- !u!114 &3100949313910425060
 MonoBehaviour:
   m_ObjectHideFlags: 0

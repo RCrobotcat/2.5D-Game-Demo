@@ -90,6 +90,8 @@ public class PlayerNumController : MonoBehaviour, IController
         {
             SceneController.Instance.ReloadCurrentScene();
             this.SendCommand(new PlayerHealthChangeCommand(100));
+            player.spineAnimationController.DeleteAnimation(4);
+            player.spineAnimationController.AddAnimation(player.spineAnimationController.death, false, 4);
         }
     }
 
